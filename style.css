@@ -3,11 +3,32 @@ background-color: #151A25;
 }
 .jumbotron {
     background-color: #11151D !important;
-    
+    width: 800px;
+    height: 500px;
+    left:0; right:0;
+    top:50px; bottom:0;
+    margin:auto !important;
+    margin-top: 50px !important;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
+
+
+    /*this to solve "the content will not be cut when the window is smaller than the content": */
+    max-width:100%;
+    max-height:100%;
 }
 
-h1{
+h1, p{
     color: #4F37C3;
+}
+a{
+    color: #4F37C3;
+    text-decoration: none;
+}
+a:hover{
+    color: #4E57CF;
+    text-decoration: none;
+}
+.contactInfo i {
+    margin-left: 15px;
 }
