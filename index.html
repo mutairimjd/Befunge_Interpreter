@@ -27,61 +27,83 @@
         <h1 class="card-title h2 text-center">Befunge-93 Code Interpreter</h1>
 
 
-        <!-- Grid row -->
-        <div class="row d-flex justify-content-center">
+        <div class="container">
+            <!-- Grid row -->
 
-            <table>
-                <tr>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <th>6</th>
-                    <th>7</th>
-                    <th>8</th>
-                </tr>
-                <tr>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <th>6</th>
-                    <th>7</th>
-                    <th>8</th>
-                </tr>
-                <tr>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <th>6</th>
-                    <th>7</th>
-                    <th>8</th>
-                </tr>
-            </table>
-
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6">
+                    <table>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <table>
+                        <tr>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <hr class="my-4 rgba-white-light">
 
         </div>
+
+
         <!-- Grid row -->
 
-        <hr class="my-4 rgba-white-light">
-        <p class="my-4 h6">Enter your befunge code instructions and split them with "\n":
-            <span>E.g: >987v>.v\nv456< :\n>321 ^ _@ </span>
+        <p class="h5">Enter your befunge code instructions and split them with "\n" :
         </p>
+        <span class="example"> E.g: >987v>.v\nv456< :\n>321 ^ _@ </span>
+
         <!-- Large outline input -->
         <div class="md-form md-outline form-lg">
             <input id="form-lg" class="form-control form-control-lg" type="text">
-            <label for="form-lg">Befunge Code</label>
+            <label for="form-lg" class="active">Befunge Code</label>
             <div class="text-center">
                 <button type="button" class="btn btn-outline-white">Start Interpret</button>
                 <button type="button" class="btn btn-outline-white">Clear</button>
             </div>
         </div>
 
-
+        <div class="text-center">
+            <h1 class="card-title h2 text-center">Output:</h1>
+            <p class="my-4 h6">result</p>
+        </div>
 
 
     </div>
