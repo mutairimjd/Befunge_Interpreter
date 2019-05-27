@@ -1,5 +1,6 @@
 body {
 background-color: #151A25;
+font-family: 'Open Sans', sans-serif;
 }
 .jumbotron {
     background-color: #11151D !important;
@@ -52,11 +53,18 @@ table td {
 
 .example{
     color: #2F3A52;
+    font-size: 15px;
+}
+
+.output{
+    color: #3BAB35;
     font-size: 20px;
 }
 
 label {
     color: #2F3A52 !important;
+    font-size: 15px !important;
+
 }
 
 .form-control:focus {
@@ -71,6 +79,7 @@ label {
 
 h1, p{
     color: #4F37C3;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .btn-outline-white {
