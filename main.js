@@ -1,8 +1,61 @@
+$(document).ready(function () {
+    console.log("I'm ready!");
+
+    $("#clear-btn").click(() => {
+        $("#result").text("")
+        $(".output").css("display", "none");
+        $("input").val("")
+        $("#instructionsGrid").empty();
+    });
+
+    $("#start-btn").click(function () {
+        // clean up
+        $("#result").text("");
+        $(".output").css("display", "none");
+        $("#instructionsGrid").empty();
+
+        var input = $('input').val();
+        console.log("I'm input: ", input);
+
+        // to prevent the user from clicking it, while the interpreter tool is working
+        $("#start-btn").prop("disabled", true);
+        interpret(input);
+        // enable the start button to be clicked again after the interpreting is done
+        $("#start-btn").prop("disabled", false);
+    });
+
+});
+
+
+
 // Befunge Interpreter
 
 function interpret(code) {
+
     let output = "";
-    let Code_Instructions = code.split('\n').map((i) => { return i.split(''); });
+    let Code_Instructions = code.split('\\n').map((i) => { return i.split(''); });
+
+
+    Code_Instructions.forEach((y, index) => {
+
+        $("<tr></tr>").appendTo("#instructionsGrid").addClass(`${index}`);
+
+        var printX = setInterval(print, 500);
+        var x = 0;
+
+        function print() {
+            if (x < y.length) {
+                $('.' + index).append(`<td>${y[x]}</td>`);
+                x++;
+            } else {
+                clearInterval(printX);
+            }
+        };
+
+
+    });
+
+
     let Stack = [];
     let X = 0;
     let Y = 0;
@@ -66,7 +119,9 @@ function interpret(code) {
         };
     }
     var InterpretToNumber = (num) => {
-        return function () { Stack.push(num); };
+        return function () {
+            Stack.push(num);
+        };
     }
     var Addition = () => {
         Stack.push(Stack.pop() + Stack.pop());
@@ -180,7 +235,7 @@ function interpret(code) {
         '_': InterpretThenMove(Underscore),// _ Pop a value; move right if value = 0, left otherwise.
         '|': InterpretThenMove(pipe),// | Pop a value; move down if value = 0, up otherwise.
         '"': InterpretThenMove(StringMode),// " Start string mode: push each character's ASCII value all the way up to the next ".
-        ':': InterpretThenMove(DuplicateValue),// : Duplicate value on top of the stack. If there is nothing on top of the stack, push a 0.
+        ":": InterpretThenMove(DuplicateValue),// : Duplicate value on top of the stack. If there is nothing on top of the stack, push a 0.
         '\\': InterpretThenMove(Swap),// \ Swap two values on top of the stack. If there is only one value, pretend there is an extra 0 on bottom of the stack.
         '$': InterpretThenMove(Pop),// $ Pop value from the stack and discard it.
         '.': InterpretThenMove(PopAsInteger),// . Pop value and output as an integer.
@@ -193,13 +248,16 @@ function interpret(code) {
 
     while (Code_Instructions[Y][X] !== '@') {
         Current_Instruction = Code_Instructions[Y][X];
+        console.log("Current_Instruction:", Current_Instruction);
         Instructions[Current_Instruction]();
         console.log("Stack:", Stack);
-        console.log("output:", output);
     }
 
+    $(".output").css("display", "block");
+    $("#result").text(output);
     return output;
 }
 
 // test case:
-interpret('>987v>.v\nv456<  :\n>321 ^ _@');
+// interpret('>987v>.v\nv456<  :\n>321 ^ _@');
+// interpret('"!dlroW olleH">:#,_@');

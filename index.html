@@ -31,66 +31,13 @@
 
         <div class="container">
             <!-- Grid row -->
+            <p class="text-center justify-content-center example">Instructions Grid</p>
 
             <div class="row d-flex justify-content-center">
-                <div class="col-md-6">
-                    <!-- <p class="my-4 h6">grid</p> -->
-                    <table>
-                        <tr>
-                            <th colspan="8">
-                                <p class="text-center example">Instructions Grid</p>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td>7</td>
-                            <td>8</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td>7</td>
-                            <td>8</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td>7</td>
-                            <td>8</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="col-md-6">
-                    <table>
-                        <tr>
-                            <th colspan="8">
-                                <p class="text-center example">Stack</p>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                        </tr>
-                    </table>
-                </div>
+                <table id="instructionsGrid">
+
+
+                </table>
             </div>
             <hr class="my-4 rgba-white-light">
 
@@ -106,16 +53,16 @@
         <!-- Large outline input -->
         <div class="md-form md-outline form-lg">
             <input id="form-lg" class="form-control form-control-lg" type="text">
-            <label for="form-lg" class="active">Befunge Code</label>
+            <label for="form-lg" class="active input">Befunge Code</label>
             <div class="text-center">
-                <button type="button" class="btn btn-outline-white">Start Interpret</button>
-                <button type="button" class="btn btn-outline-white">Clear</button>
+                <button type="button" class="btn btn-outline-white" id="start-btn">Start Interpret</button>
+                <button type="button" class="btn btn-outline-white" id="clear-btn">Clear</button>
             </div>
         </div>
 
         <div class="text-center">
-            <h1 class="card-title h2 text-center">Output:</h1>
-            <p class="my-4 output ">result</p>
+            <h1 class="card-title h2 text-center output">Output:</h1>
+            <p class="my-4 output" id="result"></p>
         </div>
 
 
@@ -173,6 +120,9 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- main.js -->
+    <script src="main.js"></script>
+
 </body>
 
 </html>
