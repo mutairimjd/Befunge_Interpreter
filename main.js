@@ -35,25 +35,25 @@ function interpret(code) {
     let output = "";
     let Code_Instructions = code.split('\\n').map((i) => { return i.split(''); });
 
+    function delay() {
+        return new Promise(resolve => setTimeout(resolve, 500));
+    }
 
-    Code_Instructions.forEach((y, index) => {
+    async function delayedPrint(index, x) {
+        // notice that we can await a function
+        // that returns a promise
+        await delay();
+        $('.' + index).append(`<td>${x}</td>`);
+    }
 
-        $("<tr></tr>").appendTo("#instructionsGrid").addClass(`${index}`);
-
-        var printX = setInterval(print, 500);
-        var x = 0;
-
-        function print() {
-            if (x < y.length) {
-                $('.' + index).append(`<td>${y[x]}</td>`);
-                x++;
-            } else {
-                clearInterval(printX);
+    async function PrintInstructions(instructions) {
+        for (const [index, y] of instructions.entries()) {
+            $("<tr></tr>").appendTo("#instructionsGrid").addClass(`${index}`);
+            for (const x of y) {
+                await delayedPrint(index, x);
             }
-        };
-
-
-    });
+        }
+    }
 
 
     let Stack = [];
@@ -246,6 +246,7 @@ function interpret(code) {
         ' ': InterpretThenMove(),//  (i.e. a space) No-op. Does nothing.
     }
 
+    PrintInstructions(Code_Instructions);
     while (Code_Instructions[Y][X] !== '@') {
         Current_Instruction = Code_Instructions[Y][X];
         console.log("Current_Instruction:", Current_Instruction);
