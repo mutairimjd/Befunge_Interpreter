@@ -34,6 +34,13 @@ function interpret(code) {
 
     let output = "";
     let Code_Instructions = code.split('\\n').map((i) => { return i.split(''); });
+    let Stack = [];
+    let X = 0;
+    let Y = 0;
+    let MoveDirection = '>';
+    let Current_Instruction;
+
+    // TODO: Interpret the code!
 
     function delay() {
         return new Promise(resolve => setTimeout(resolve, 500));
@@ -55,13 +62,6 @@ function interpret(code) {
         }
     }
 
-
-    let Stack = [];
-    let X = 0;
-    let Y = 0;
-    let MoveDirection = '>';
-    let Current_Instruction;
-    // TODO: Interpret the code!
 
     // Instructions Functions 
     var MoveRight = () => {
@@ -249,9 +249,7 @@ function interpret(code) {
     PrintInstructions(Code_Instructions);
     while (Code_Instructions[Y][X] !== '@') {
         Current_Instruction = Code_Instructions[Y][X];
-        console.log("Current_Instruction:", Current_Instruction);
         Instructions[Current_Instruction]();
-        console.log("Stack:", Stack);
     }
 
     $(".output").css("display", "block");
