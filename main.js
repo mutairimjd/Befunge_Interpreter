@@ -43,12 +43,12 @@ function interpret(code) {
     // TODO: Interpret the code!
 
     function delay() {
-        return new Promise(resolve => setTimeout(resolve, 500));
+        return new Promise(resolve => setTimeout(resolve, 250));
     }
 
     async function delayedPrint(index, x) {
-        // notice that we can await a function
-        // that returns a promise
+        // await a function
+        // returns a promise
         await delay();
         $('.' + index).append(`<td>${x}</td>`);
     }
@@ -60,7 +60,24 @@ function interpret(code) {
                 await delayedPrint(index, x);
             }
         }
+
+        StartInterpret();
+
     }
+
+    async function StartInterpret() {
+
+        $(".output").css("display", "block");
+
+        while (Code_Instructions[Y][X] !== '@') {
+            await delay();
+            console.log("output: ", output);
+            $("#result").text(output);
+            Current_Instruction = Code_Instructions[Y][X];
+            Instructions[Current_Instruction]();
+        }
+    }
+
 
 
     // Instructions Functions 
@@ -247,14 +264,7 @@ function interpret(code) {
     }
 
     PrintInstructions(Code_Instructions);
-    while (Code_Instructions[Y][X] !== '@') {
-        Current_Instruction = Code_Instructions[Y][X];
-        Instructions[Current_Instruction]();
-    }
 
-    $(".output").css("display", "block");
-    $("#result").text(output);
-    return output;
 }
 
 // test case:
