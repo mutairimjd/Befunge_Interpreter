@@ -54,6 +54,9 @@ function interpret(code) {
     }
 
     async function PrintInstructions(instructions) {
+
+        $(".Int-grid").css("display", "block");
+
         for (const [index, y] of instructions.entries()) {
             $("<tr></tr>").appendTo("#instructionsGrid").addClass(`${index}`);
             for (const x of y) {
@@ -62,20 +65,25 @@ function interpret(code) {
         }
 
         StartInterpret();
-
     }
 
     async function StartInterpret() {
 
         $(".output").css("display", "block");
 
+        var data = $('#instructionsGrid tr');
+        console.log("dom arr: ", data);
+
         while (Code_Instructions[Y][X] !== '@') {
+            data[Y].childNodes[X].style.color = '#ff1fb8'
             await delay();
-            console.log("output: ", output);
+            data[Y].childNodes[X].style.color = '#3BAB35'
             $("#result").text(output);
             Current_Instruction = Code_Instructions[Y][X];
             Instructions[Current_Instruction]();
         }
+        $("#result").animate({ fontSize: "30px" });
+        $("#result").css('color', '#3BAB35');
     }
 
 

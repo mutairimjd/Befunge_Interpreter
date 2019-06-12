@@ -5,13 +5,12 @@ font-family: 'Open Sans', sans-serif;
 .jumbotron {
     background-color: #11151D !important;
     width: 850px;
-    height: 700px;
     left:0; right:0;
     top:50px; bottom:0;
     margin:auto !important;
     margin-top: 50px !important;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+    padding: 30px;
     /*this to solve "the content will not be cut when the window is smaller than the content": */
     max-width:100%;
     max-height:100%;
@@ -55,12 +54,12 @@ table td {
     font-size: 15px;
 }
 
-.output{
+.output, .Int-grid {
     display: none;
 }
 
 #result{
-    color: #3BAB35;
+    color: #ff1fb8;
     font-size: 20px;
 }
 
