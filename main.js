@@ -46,7 +46,7 @@ function interpret(code) {
     // TODO: Interpret the code!
 
     function delay() {
-        return new Promise(resolve => setTimeout(resolve, 250));
+        return new Promise(resolve => setTimeout(resolve, 150));
     }
 
     async function delayedPrint(index, x) {
