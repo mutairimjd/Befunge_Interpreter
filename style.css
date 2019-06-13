@@ -60,13 +60,13 @@ table td {
 
 #result{
     color: #ff1fb8;
+    background-color: #151A25;
     font-size: 20px;
 }
 
 label {
     color: #2F3A52 !important;
     font-size: 15px !important;
-
 }
 
 .form-control:focus {
@@ -77,6 +77,11 @@ label {
 .md-form input[type=text]:focus:not([readonly])+label{
     color: #4F37C3 !important;
     background-color: #11151D;
+}
+
+.md-form input[type=text]:not([readonly])+label{
+    background-color: #11151D;
+    margin-left: 5px; 
 }
 
 h1, p{
@@ -106,4 +111,8 @@ footer.page-footer a:hover{
 }
 .contactInfo i {
     margin-left: 15px;
+}
+
+.code-form{
+    margin-top: 40px;
 }

@@ -38,32 +38,31 @@
 
                 </table>
             </div>
-            <hr class="my-4 rgba-white-light">
 
         </div>
 
 
         <!-- Grid row -->
+        <div class="code-form">
+            <p class="h5">Enter your befunge code instructions and split them with "\n" :
+            </p>
+            <span class="example"> E.g: >987v>.v\nv456< :\n>321 ^ _@ </span>
 
-        <p class="h5">Enter your befunge code instructions and split them with "\n" :
-        </p>
-        <span class="example"> E.g: >987v>.v\nv456< :\n>321 ^ _@ </span>
+            <!-- Large outline input -->
+            <div class="md-form md-outline form-lg">
+                <input id="form-lg" class="form-control form-control-lg" type="text">
+                <label for="form-lg" class="active input">Befunge Code</label>
+                <div class="text-center">
+                    <button type="button" class="btn btn-outline-white" id="start-btn">Start Interpret</button>
+                    <button type="button" class="btn btn-outline-white" id="clear-btn">Clear</button>
+                </div>
+            </div>
 
-        <!-- Large outline input -->
-        <div class="md-form md-outline form-lg">
-            <input id="form-lg" class="form-control form-control-lg" type="text">
-            <label for="form-lg" class="active input">Befunge Code</label>
             <div class="text-center">
-                <button type="button" class="btn btn-outline-white" id="start-btn">Start Interpret</button>
-                <button type="button" class="btn btn-outline-white" id="clear-btn">Clear</button>
+                <h1 class="card-title h2 text-center output">Output:</h1>
+                <p class="my-4 output" id="result"></p>
             </div>
         </div>
-
-        <div class="text-center">
-            <h1 class="card-title h2 text-center output">Output:</h1>
-            <p class="my-4 output" id="result"></p>
-        </div>
-
 
     </div>
     <!-- Jumbotron -->

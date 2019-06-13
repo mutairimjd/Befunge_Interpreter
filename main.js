@@ -4,6 +4,7 @@ $(document).ready(function () {
     $("#clear-btn").click(() => {
         $("#result").text("")
         $(".output").css("display", "none");
+        $(".Int-grid").css("display", "none");
         $("input").val("")
         $("#instructionsGrid").empty();
     });
@@ -19,9 +20,11 @@ $(document).ready(function () {
 
         // to prevent the user from clicking it, while the interpreter tool is working
         $("#start-btn").prop("disabled", true);
+        $("#clear-btn").prop("disabled", true);
         interpret(input);
         // enable the start button to be clicked again after the interpreting is done
         $("#start-btn").prop("disabled", false);
+        $("#clear-btn").prop("disabled", false);
     });
 
 });
@@ -72,12 +75,14 @@ function interpret(code) {
         $(".output").css("display", "block");
 
         var data = $('#instructionsGrid tr');
-        console.log("dom arr: ", data);
 
         while (Code_Instructions[Y][X] !== '@') {
-            data[Y].childNodes[X].style.color = '#ff1fb8'
+            data[Y].childNodes[X].style.color = '#11151D'
+            data[Y].childNodes[X].style.backgroundColor = '#3BAB35';
             await delay();
             data[Y].childNodes[X].style.color = '#3BAB35'
+            data[Y].childNodes[X].style.backgroundColor = '#151A25';
+
             $("#result").text(output);
             Current_Instruction = Code_Instructions[Y][X];
             Instructions[Current_Instruction]();
